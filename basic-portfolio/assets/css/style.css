@@ -1,5 +1,9 @@
 /* global styles */
 
+*{
+    box-sizing: border-box;
+}
+
 body {
     color: #777;
     font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
@@ -116,6 +120,8 @@ body {
 
 .portfolio-list {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 .portfolio-list li {
     display: block;
@@ -129,16 +135,12 @@ body {
 .portfolio-list li:hover img {
     opacity: 1;
 }
-/* .portfolio-list li:hover h3 {
-    opacity: 1;
-} */
 .portfolio-list h3 {
     color: #fff;
     position: absolute;
     bottom: 15px;
     left: 0;
     right: 0;
-    /* width: 100%; */
     padding: 0 15px;
     margin: 0;
     background-color: #4aaaa5;
@@ -150,14 +152,43 @@ body {
     height: 100%;
     opacity: 0.75;
 }
-/* .portfolio-list img:hover { */
-    /* opacity: 1.0; */
-/* } */
-.form {
-    input[type=text] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
-      }
+
+/* contact form */
+
+.form-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.form-list li {
+    display: block;
+    margin: 0 0 30px 0;
+}
+.form-list label,
+.form-list input,
+.form-list textarea {
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+.form-list label {
+    margin-bottom: 5px;
+}
+.form-list textarea {
+    height: 200px;
+    border-color: #eee;
+    border-width: 2px;
+}
+.form input[type="text"] {
+    padding: 12px 20px;
+    margin: 0;
+    box-sizing: border-box;
+}
+.form input[type="submit"] {
+background: none;
+background-color: #4aaaa5;
+color: #fff;
+display: inline-block;
+padding: 20px;
+width: auto;
 }
