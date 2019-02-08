@@ -1,33 +1,53 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
-<head>
-    <meta charset="utf-8">
-    <title>bird guess!</title>
-    <script src="assets/javascript/game.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-</head>
-
-<body>
-    <header class="game-header">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>bird game!</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src="assets/javascript/game.js"></script>
+    </head>
+    <body>
+    <header style="background-color: yellow; margin: 0 0 30px 0;">
         <div class="container">
             <div class="row">
-
+                <h1 class="col-sm-12">hangbird!!</h1>
             </div>
         </div>
     </header>
-    <main class="game-content">
+    <main class="game" style="background-color: blue;">
         <div class="container">
-            <div class="row">
-
+            <div class="row" style="background-color: green; margin: 0 0 30px 0;">
+                <div class="pic col-sm-6">
+                    <div id="picture" class="picture col-sm-12" style="min-height: 400px;">
+                        picture here
+                    </div>
+                <h2 id="tryAgain">press any key 2 try again</h2>
+                </div>
+                <div class="guessingWord col-sm-6">
+                    <h2 id="guessingWord"></h2>
+                </div>
             </div>
-            <div class="row">
-
+            <div class="row" style="background-color: darkgrey; margin: 0 0 30px 0;">
+                <div class="game col-sm-12" id="quiz" style="min-height: 400px;">
+                    <h2 id="start">press any key 2 start</h2>
+                    <h3>wins!</h3>
+                    <h3 id-="wins"></h3>
+                    <h3>guesses!</h3>
+                    <h3 id="remainingGuesses"></h3>
+                    <h3>wrong letters :(</h3>
+                    <h3 id="guessedLetters"></h3>
+                </div>
             </div>
         </div>
     </main>
-
-</body>
-
-</html>
+    <script>
+        <!--window.onload???-->
+        reset();
+        updateDisplay();
+    </script>
+    </body>
+    </html>
