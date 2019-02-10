@@ -11,43 +11,71 @@
         <script src="assets/javascript/game.js"></script>
     </head>
     <body>
-    <header style="background-color: yellow; margin: 0 0 30px 0;">
-        <div class="container">
-            <div class="row">
-                <h1 class="col-sm-12">hangbird!!</h1>
+    <div class="container">
+        <!--<img id="title-image" src="assets/images/hangman-title.png" alt="Hangman Title Image" />-->
+        <div class="row">
+            <div class="col-md-12 gameplay-column">
+                <img id="bird1" src="assets/images/bird1.JPG" alt=""/>
+                <img id="bird2" src="assets/images/bird2.JPG" alt=""/>
+                <h2 id="tryAgain">press any key 2 try again!</h2>
             </div>
         </div>
-    </header>
-    <main class="game" style="background-color: blue;">
-        <div class="container">
-            <div class="row" style="background-color: green; margin: 0 0 30px 0;">
-                <div class="pic col-sm-6">
-                    <div id="picture" class="picture col-sm-12" style="min-height: 400px;">
-                        picture here
-                    </div>
-                <h2 id="tryAgain">press any key 2 try again</h2>
-                </div>
-                <div class="guessingWord col-sm-6">
-                    <h2 id="guessingWord"></h2>
-                </div>
-            </div>
-            <div class="row" style="background-color: darkgrey; margin: 0 0 30px 0;">
-                <div class="game col-sm-12" id="quiz" style="min-height: 400px;">
-                    <h2 id="start">press any key 2 start</h2>
-                    <h3>wins!</h3>
-                    <h3 id-="wins"></h3>
-                    <h3>guesses!</h3>
-                    <h3 id="remainingGuesses"></h3>
-                    <h3>wrong letters :(</h3>
-                    <h3 id="guessedLetters"></h3>
-                </div>
+        <div class="row">
+            <div class="col-md-12 gameplay-column">
+                <h2>press a-z 2 guess!!</h2>
+                <h4>wins!</h4>
+                <h5 id="totalWins"></h5>
+                <h4>word??</h4>
+                <h3 id="currentWord"></h3>
+                <h4>guesses</h4>
+                <h6 id="remainingGuesses"></h6>
+                <h4>letters guessed</h4>
+                <h3 id="guessedLetters"></h3>
             </div>
         </div>
-    </main>
+    </div>
     <script>
-        <!--window.onload???-->
-        reset();
+        resetGame();
         updateDisplay();
     </script>
+
+        <!--<header style="background-color: yellow; margin: 0 0 30px 0;">-->
+        <!--<div class="container">-->
+            <!--<div class="row">-->
+                <!--<h1 class="col-sm-12">hangbird!!</h1>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</header>-->
+    <!--<main class="game" style="background-color: blue;">-->
+        <!--<div class="container">-->
+            <!--<div class="row" style="background-color: green; margin: 0 0 30px 0;">-->
+                <!--<div class="pic col-sm-6">-->
+                    <!--<div id="picture" class="picture col-sm-12" style="min-height: 400px;">-->
+                        <!--<img id="bird-image" src="" alt=""/>-->
+                    <!--</div>-->
+                <!--<h2 id="tryAgain">press any key 2 try again</h2>-->
+                <!--</div>-->
+                <!--<div class="guessingWord col-sm-6">-->
+                    <!--<h2 id="guessingWord"> supposed to have dynamic text</h2>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="row" style="background-color: darkgrey; margin: 0 0 30px 0;">-->
+                <!--<div class="game col-sm-12" id="quiz" style="min-height: 400px;">-->
+                    <!--<h2 id="start">The JS</h2>-->
+                    <!--&lt;!&ndash;<h3>wins!</h3>&ndash;&gt;-->
+                    <!--<h3 id="wins">The JS</h3>-->
+                    <!--&lt;!&ndash;<h3>guesses!</h3>&ndash;&gt;-->
+                    <!--<h3 id="remainingGuesses">The JS</h3>-->
+                    <!--<h3>wrong letters :(</h3>-->
+                    <!--<h3 id="guessedLetters">The JS</h3>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</main>-->
+    <!--<script>-->
+        <!--//window.onload???-->
+        <!--//return??-->
+        <!--reset();-->
+        <!--updateDisplay();-->
     </body>
     </html>
