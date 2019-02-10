@@ -11,7 +11,10 @@ body {
     background-image: url("../images/houndstooth-pattern.png");
     padding: 0 0 200px 0;
 }
-a {}
+a {
+    color: #fff;
+    text-decoration: none;
+}
 p {}
 h1, h2 {
     font-family: 'Georgia', Times, Times New Roman, serif;
