@@ -1,0 +1,21 @@
+h1 {
+    font-family: 'Major Mono Display', monospace;
+}
+
+.crystal-list {
+
+}
+
+.crystal-click {
+    display: block;
+
+}
+
+
+.crystal-click img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 2px solid #ccc;
+}
+
