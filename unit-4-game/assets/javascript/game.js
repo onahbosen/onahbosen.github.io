@@ -1,67 +1,90 @@
 $(document).ready(function() {
 
-//    variables
-    var hasFinished = false;
-    var crystalValues = [];
+//crystal number variable
+    var $crystals = $('.crystal-list');
+    var crystalsLength = $crystals.find('.crystal-click').length;
+    var crystalNumbersArr = [];
 
-    //where we place our ouput from number generation or whatever
-    var $printTargetNumber = $('.target-number');
-    var $printCurrentNumber = $('.current-number');
-
-    //set initial target number
-    function initLoad() {
-        var newNumberTarget = numberRandomizer(19, 120);
-        $printTargetNumber.append(newNumberTarget);
-
-        var $html = $('.crystal-list');
-        var toggleLength = $html.find('a').length;
-
-        for ( var i = 0; i < toggleLength; i++ ) {
-            var randomToTwelve = numberRandomizer(1, 12);
-            crystalValues.push(randomToTwelve);
-        }
-         // console.log(crystalValues);
-
-    };
-
-    //call intitial load function
-    initLoad();
-
-    $('.crystal-click').on("click", function(e) {
-        e.preventDefault();
-        var $this = $(this);
-        var whichOneAmI = $this.index();
-
-        var assignment = crystalValues[whichOneAmI];
-
-        //get number value
-        var oldAssignment = parseInt( $('.current-number').text() );
-        var currentTotal = assignment + oldAssignment;
-
-        $('.current-number').text(currentTotal);
-
-    })
-
-//    reset/update game
-//     function resetGame() {
-//         if(currentTotal === $printTargetNumber) {
-//             var hasFinished = true;
-//             alert("u win!");
-//         }
-//         if (currentTotal > $printTargetNumber) {
-//             var hasFinished = true;
-//             alert("u lose!");
-//         }
-//     }
-//     resetGame();
-
-
-//    get random numbers
+//random number equation/function
     function numberRandomizer(min, max) {
-
-       var targetNumber = Math.floor((Math.random() * (max - min)) + min);
-
-       return targetNumber;
+        var randomNumber = Math.floor(Math.random() * (max - min) + min);
+        return randomNumber;
     }
 
+//initial user total
+    var userTotal = 0;
+
+//tallies for wins/losses and print to page
+    var wins = 0;
+    var losses = 0;
+    $('#wins').text(wins);
+    $('#losses').text(losses);
+
+//number randomizer function
+    function numberRandomizer(min, max) {
+        var randomNumber = Math.floor(Math.random() * (max - min) + min);
+        return randomNumber;
+    }
+
+//reset game
+    function reset() {
+
+        //clear crystalNumbersArr
+        crystalNumbersArr.length = 0;
+
+        //set random target number and print to page
+        targetNumber = numberRandomizer(19, 120);
+        $('#targetNumber').text(targetNumber);
+
+        //set random numbers for each crystal image and push into crystalNumbersArr
+        for (i = 0; i < crystalsLength; i++) {
+            var crystalNumbers = numberRandomizer(1, 12);
+            crystalNumbersArr.push(crystalNumbers);
+            console.log(crystalNumbersArr);
+        }
+
+        // reset userTotal
+        userTotal = 0;
+        $('#currentNumber').text(userTotal);
+    }
+
+//invoke reset on page load
+    reset();
+
+//add wins to userTotal variable and reset game
+    function winner() {
+        alert("u won :~)");
+        wins++;
+        $('#wins').text(wins);
+        reset();
+    }
+
+//add losses to userTotal and reset game
+    function loser() {
+        alert("you lost :~(");
+        losses++;
+        $('#losses').text(losses);
+        reset();
+    }
+
+//make crystal images into functional buttons
+    var $crystalToggle = $crystals.find('.crystal-click');
+
+    $crystalToggle.on('click', function (e) {
+        e.preventDefault();
+        var $this = $(this);
+        var thisIndexOf = $this.index();
+
+        //new user total (add each crystal click)
+        userTotal = userTotal + crystalNumbersArr[thisIndexOf];
+        $('#currentNumber').text(userTotal);
+
+        //determine win/loss and run appropriate function
+        if (userTotal == targetNumber) {
+            winner();
+        } else if (userTotal > targetNumber) {
+            loser();
+        }
+        ;
+    });
 });
