@@ -25,8 +25,16 @@
     background-size: 600% 100%
 }
 
-body {
+.container {
+    text-align: center;
+}
+
+header {
     font-family: 'Lobster', cursive;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
 }
 
 .game-info {
@@ -63,24 +71,16 @@ body {
     }
 }
 
-.game-round {
+.game {
     display: none;
 }
 
-.l-game-round {
+.game-play {
     background-color: #fff;
+    display: inline-block;
+    padding: 0 15px;
 }
 
-ul {
-    list-style-type: none;
-}
-
-.win-or-lose {
-    display: block;
-    background: #fff;
-    text-align: center;
-}
-
-.win-or-lose h3 {
-    display: none;
+.btn-group {
+    margin: 0 0 15px 0;
 }

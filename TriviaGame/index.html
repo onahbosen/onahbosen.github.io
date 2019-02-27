@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
@@ -28,55 +29,25 @@
                 <button type="button" class="btn btn-light start">start</button>
             </div>
         </div>
-        <div class="row">
-            <div class=" col-sm">
-                <h3><span class="timer"></span></h3>
-            </div>
-        </div>
     </div>
 </header>
-<div class="container">
-    <div class="row game-round ">
-        <div class="col-sm shadow-pop-tr">
-            <h2 class="question" id="question"></h2>
-            <ul class="list-group list-group-flush" id="answers">
-                <!--<li><button type="button" class="answer-btn list-group-item list-group-item-action rounded" id="answer1"></button></li>-->
-                <!--<li><button type="button" class="answer-btn list-group-item list-group-item-action rounded" id="answer2"></button></li>-->
-                <!--<li><button type="button" class="answer-btn list-group-item list-group-item-action rounded" id="answer3"></button></li>-->
-            </ul>
+<div class="container game">
+    <div class="row">
+        <div class=" col-sm">
+            <h3><span class="timer"></span></h3>
         </div>
     </div>
-</div>
-<div class="container">
-    <div class="row win-or-lose shadow-pop-tr">
+    <div class="row shadow-pop-tr game-play"
         <div class="col-sm">
-            <span class="win-msg"></span>
-            <span class="loss-msg"></span>
-            <h3 class="final-msg">all done!<br>
-                <span class="number-wins"></span><br>
-                <span class="number-losses"></span><br>
-                <span class="number-unanswered"></span>
-            </h3>
+            <h2 class="question" id="question"></h2>
+            <div class="row">
+                <div class="col-sm"
+                <div class="list-group" id="options"></div>
+            </div>
+            <div class="row>
+                <span class="col-sm" id="results"></span>
+            </div>
         </div>
-    </div>
-</div>
-
-<div class="game-panels">
-    <div class="container">
-
-
-
-        <!--<div class="row game-round" id="round2" style="display:block;">-->
-            <!--<div class="col-sm-12 l-game-round shadow-pop-tr">-->
-                <!--<h2 class="question" id="question">question</h2>-->
-                <!--<ul class="list-group list-group-flush" id="answers">-->
-                    <!--<li><button type="button" class="list-group-item list-group-item-action rounded" id="answer1">?</button></li>-->
-                    <!--<li><button type="button" class="list-group-item list-group-item-action rounded" id="answer2">?</button></li>-->
-                    <!--<li><button type="button" class="list-group-item list-group-item-action rounded" id="answer3">?</button></li>-->
-                <!--</ul>-->
-            <!--</div>-->
-        <!--</div>-->
-
     </div>
 </div>
 </body>
