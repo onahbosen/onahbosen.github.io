@@ -64,10 +64,27 @@ $(document).ready(function() {
         ]
     }
 
+    var triviaInfo = {
+        "numberCorrect": 0,
+        "numberIncorrect": 0,
+        "unanswered": 0,
+        "timer": 30,
+        "timerOn": false
+    }
+
     var correctAnswerArr = [];
 
+    $('.timer').text(triviaInfo.timer);
+
+//start game
+    $('.start').on('click', function(e){
+        $('.start').hide();
+        $('#round-0').show();
+        triviaInfo.timerOn = true;
+    });
+
 //build question list
-    function buildQuestionList(data){
+    function buildQuestionList(data) {
         for (var i = 0; i < data.questions.length; i++){
             var getCurrentIndex = i;
             var getQuestion = data.questions[i].question;
@@ -96,26 +113,65 @@ $(document).ready(function() {
 
     buildQuestionList(qAndA);
 
-//set up question timer
-    var questionTimer = 30;
-    var timerInterval;
+//    2. set up interval of 5 seconds to stay on win/loss panel
+//            go to next game panel after
+//    3. after all game panels have been displayed show panel w number of wins/losses etc.
 
-    function setTimer(){
-        timerInterval = setInterval(decrement, 1000);
-    }
+//timer functions
+    var timerInterval = setInterval(decrement, 500);
 
     function decrement(){
-        questionTimer--;
-        $('.timer').text(questionTimer);
-        if(questionTimer === 0){
-            stop();
-        //    call time up function here
-        }
+
+
+        $panel = $panel++;
+        // var activeRound = whichOneVisible();
+        // var $nextPanel = $('.game-round').eq(activeRound + 1);
+
+        if(triviaInfo.timerOn === true) {
+            triviaInfo.timer--;
+            $('.timer').text(triviaInfo.timer);
+
+            if (triviaInfo.timer === 0) {
+                clearTimer();
+                // $('.game-round').eq(activeRound).hide();
+                $('.win-or-lose h3:nth-child(2)').show();
+
+                setTimeout(fiveSeconds, 5000);
+            };
+        };
+    };
+
+    function clearTimer(){
+        clearInterval(timerInterval);
+    };
+
+//flip through other game panels
+
+    var $panel = 0;
+
+    // var $nextPanel = $('.game-round').eq(whichOneVisible() + 1);
+
+    function fiveSeconds(){
+        clearTimeout(fiveSeconds);
+        $('.win-or-lose').hide();
+        $('.game-round').eq($panel).show();
+        triviaInfo.timer = true;
+
+
+
+
     }
 
+
+
+
+
+
+
 //answer button click (determine if right or wrong and display appropriate msg panel)
-    $('.answer-btn').on('click', function(e){
+    $('.answer-btn').on('click', function(e) {
         e.preventDefault();
+        clearTimer();
         var $this = $(this);
         var $thisIndex = $this.closest('li').index();
         var $thisPanel = $this.closest('.game-round').index();
@@ -123,34 +179,18 @@ $(document).ready(function() {
 
         var displayCorrectAnswer = qAndA.questions[$thisPanel].answers[correctAnswerIndex];
 
-        if ($thisIndex === correctAnswerIndex){
-            clearTimeout(timerInterval);
+        if ($thisIndex === correctAnswerIndex) {
             $('.game-round').hide();
             $('.win-or-lose h3:first-child').show();
-            setTimeout(showNextPanel, 5000);
-        //    hide game panel and display msg panel saying u won!
+            //hide game panel and display msg panel saying u won!
         } else {
-            clearTimeout(timerInterval);
             //hide game panel and display msg panel saying u lose! and correct answer
             $('.game-round').hide();
-            $('.win-or-lose h3:last-child').show();
+            $('.win-or-lose h3:nth-child(2)').show();
             $('.correct-answer').text(displayCorrectAnswer);
-            setTimeout(showNextPanel, 5000);
         }
+
+        setTimeout(fiveSeconds, 5000);
     });
 
-//press start button to show first game panel
-    $('.start').on('click', function(e){
-        $('.start').hide();
-        $('#round-0').show();
-        setTimer();
-    });
-
-//show second game panel
-    function showNextPanel(){
-        $('.win-or-lose').hide();
-        // $('round-1').show();
-        // setTimer();
-    };
-
-});
+}); //close document.ready
