@@ -36,12 +36,23 @@
     </div>
 </header>
 <div class="container">
+    <div class="row game-round ">
+        <div class="col-sm shadow-pop-tr">
+            <h2 class="question" id="question"></h2>
+            <ul class="list-group list-group-flush" id="answers">
+                <!--<li><button type="button" class="answer-btn list-group-item list-group-item-action rounded" id="answer1"></button></li>-->
+                <!--<li><button type="button" class="answer-btn list-group-item list-group-item-action rounded" id="answer2"></button></li>-->
+                <!--<li><button type="button" class="answer-btn list-group-item list-group-item-action rounded" id="answer3"></button></li>-->
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
     <div class="row win-or-lose shadow-pop-tr">
         <div class="col-sm">
-            <h3>yaaaaaas u were right!</h3>
-            <h3>u were wrong!<br>
-            correct answer was: <span class="correct-answer"></span></h3>
-            <h3>all done!<br>
+            <span class="win-msg"></span>
+            <span class="loss-msg"></span>
+            <h3 class="final-msg">all done!<br>
                 <span class="number-wins"></span><br>
                 <span class="number-losses"></span><br>
                 <span class="number-unanswered"></span>
