@@ -29,7 +29,10 @@ $(document).ready(function(){
                 var rating = results[i].rating;
                 var p = $('<p>').text("rating: " + rating);
                 var animalImage = $('<img>');
-                animalImage.attr('src', results[i].images.fixed_height.url);
+                animalImage.attr('src', results[i].images.fixed_height_still.url);
+                animalImage.attr('data-still', results[i].images.fixed_height_still.url);
+                animalImage.attr('data-animate', results[i].images.fixed_height.url);
+                animalImage.attr('data-state', 'still');
                 animalImage.addClass('gif');
                 gifDiv.append(animalImage);
                 gifDiv.append(p);
@@ -44,4 +47,18 @@ $(document).ready(function(){
         animalArr.push(newAnimal);
         newButton();
     });
+
+    $(document).on('click', '.gif', function(){
+        console.log('clicked')
+        var state = $(this).attr('data-state');
+
+        if(state === 'still'){
+            $(this).attr('src', $(this).attr('data-animate'));
+            $(this).attr('data-state', 'animate');
+        } else {
+            $(this).attr('src', $(this).attr('data-still'));
+            $(this).attr('data-state', 'still');
+        }
+    });
+
 });
