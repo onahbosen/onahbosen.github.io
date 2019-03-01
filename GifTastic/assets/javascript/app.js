@@ -3,15 +3,16 @@ $(document).ready(function(){
     var animalArr = ["dog", "cat", "bird", "raccoon", "hedgehog", "skunk", "seal", "bunny"];
 
     function newButton(){
-        $('.btn-group').empty();
+        // $('.btn-group').empty();
         for (var i = 0; i < animalArr.length; i++){
-            $('.btn-group').append('<button data-animal="' + animalArr[i] + '"type="button" class="btn btn-light">' + animalArr[i] + '</button>');
+            $('.btn-group').append('<button data-animal="' + animalArr[i] + '"type="button" class="btn btn-light animal-button">' + animalArr[i] + '</button>');
         }
     }
 
     newButton();
 
-    $('button').on('click', function(){
+    $(document).on('click', '.animal-button', function(){
+
     var animal = $(this).attr('data-animal');
     var queryURL = 'https://api.giphy.com/v1/gifs/search?api_key=V5mjlfTgWJcWgb2IIStIObQDPvf2P8aO&q=' + animal + '&limit=10&offset=0&lang=en';
 
@@ -43,6 +44,7 @@ $(document).ready(function(){
 
     $('.add-animal').on('click', function(e){
         e.preventDefault();
+        $('.btn-group').empty();
         var newAnimal = $('#animal-input').val().trim();
         animalArr.push(newAnimal);
         newButton();
