@@ -1,3 +1,23 @@
-.gif {
+body{
+    background-color: #d8e7ff;
+}
+
+.btn-group{
     display: block;
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.animal-button{
+    text-align: center;
+}
+
+#animal-input{
+    margin-bottom: 15px;
+}
+
+.gif {
+    display: inline-block;
 }
