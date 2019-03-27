@@ -1,0 +1,179 @@
+/*
+typography/fonts
+*/
+
+h1 {
+    font-family: 'Playfair Display SC', serif;
+}
+
+.brand-info-item {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.primary-nav-item {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.about-me-text {
+    font-family: 'Quicksand', sans-serif;
+}
+
+a {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.copyright {
+    font-family: 'Quicksand', sans-serif;
+}
+
+ /*
+layout
+*/
+
+/*
+colors
+*/
+
+/*
+links/buttons
+*/
+
+a {
+    text-decoration: none;
+    transition: all 300ms ease-in;
+    color: #000;
+}
+
+a:hover {
+    color: #000;
+    text-decoration: none;
+    opacity: .6;
+}
+
+/*
+tables
+*/
+
+/*
+forms
+*/
+
+/*
+blocks
+*/
+
+/*
+site header
+*/
+
+.site-header {
+    margin-top: 20px;
+}
+
+
+.site-header-logo {
+    text-align: center;
+    margin: 0;
+    font-size: 4em;
+}
+
+.brand-info-item {
+    text-transform: uppercase;
+}
+
+.brand-info-list,
+.primary-nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.primary-nav-list {
+    position: relative;
+
+}
+
+.primary-nav-list::before {
+    content: '';
+    display: block;
+    height: 1.5px;
+    background-color: #e0e0e0;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    left: 15px;
+    z-index: 1;
+}
+
+.primary-nav-item {
+    text-align: center;
+    flex: 0 0 auto;
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+    text-transform: uppercase;
+
+}
+
+.primary-nav-item a {
+    display: block;
+    padding: 20px 15px;
+}
+
+.primary-nav-item .link-brdr {
+    display: inline-block;
+}
+
+/*
+main-content (about)
+*/
+
+.main-content-container {
+    position: relative;
+    text-align: center;
+    color: #000;
+    margin-bottom: 50px;
+}
+
+.about-me-text {
+    background: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 3px;
+    padding: 5px;
+}
+
+/*
+main-content (portfolio)
+*/
+
+.portfolio-list {
+    list-style-type: none;
+}
+
+.portfolio-list li {
+    position: relative;
+    text-align: center;
+    color: #000;
+}
+
+.portfolio-crystal-img {
+    height: 500px;
+    width: auto;
+}
+
+.portfolio-list a {
+    background: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 3px;
+    padding: 5px;
+}
+
+/*
+site footer
+*/
